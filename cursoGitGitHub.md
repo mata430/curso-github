@@ -62,7 +62,7 @@ git commit
 # escribes y confirmas el mensaje del cambio en un sólo paso
 git commit -m "mensaje descriptivo del cambio"
 
-
+#Crear un repositorio en GitHub
 # se agrega el origen remoto de tu repositorio de GitHub
 git remote add origin https://github.com/usuario/repositorio.git
 # la primera vez que vinculamos el repositorio remoto con el local
