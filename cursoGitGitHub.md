@@ -24,8 +24,7 @@ git help config
 ## Inicializar Git en un directorio local
 
 
-```
-mkdir carpeta
+```mkdir carpeta
 cd carpeta
 touch README.md
 touch .gitignore
@@ -45,8 +44,7 @@ Flujo básico de Git
 
 ## COMANDOS
 
-```
-# agregar los cambios de un archivo al staged
+```# agregar los cambios de un archivo al staged
 git add archivo/directorio
 # agregar todos los cambios de todos los archivos al staged
 git add .
@@ -62,15 +60,93 @@ git commit
 # escribes y confirmas el mensaje del cambio en un sólo paso
 git commit -m "mensaje descriptivo del cambio"
 
+((# cambio de rama
+git branch -M main))
+
 #Crear un repositorio en GitHub
 # se agrega el origen remoto de tu repositorio de GitHub
 git remote add origin https://github.com/usuario/repositorio.git
 # la primera vez que vinculamos el repositorio remoto con el local
-git push -u origin master
+git push -u origin master (main)
 # para las subsecuentes actualizaciones, sino cambias de rama
 git push
 
 
 #para descargar los cambios del repositorio remoto al local
 git pull
+```
+
+## Cambio de rama master a main
+
+## Para repositorios nuevos
+
+```git init
+git add .
+git commit -m "Primer commit"
+git branch -M main
+git remote add origin https://github.com/usuario/repositorio.git
+git push -u origin main
+```
+
+## Para repositorios existentes
+
+```git branch -M main
+git remote add origin https://github.com/usuario/repositorio.git
+git push -u origin main
+```
+
+## Para reemplazar la rama master por main en GitHub
+
+```# Paso 1
+# Crea la rama local main y pásale el historial de la rama master
+git branch -m master main
+
+
+# Paso 2
+# Haz un push de la nueva rama local main en el repositorio remoto de GitHub
+git push -u origin main
+
+
+# Paso 3
+# Cambia el HEAD actual a la rama main
+git symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/main
+```
+
+## Paso 4
+
+Cambia la rama default de master a main en tu repositorio de GitHub .
+
+Para hacerlo, sigue las instrucciones de este [enlace](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/changing-the-default-branch)
+
+```# Paso 5
+# Elimina la rama master del repositorio remoto
+git push origin --delete master
+```
+
+## Ayuda
+
+```# ayuda en la terminal
+git comando -h
+# ayuda en el navegador
+git help comando
+```
+
+## gnorar archivos
+
+En el archivo .gitignore incluimos todo lo que NO queramos incluir en nuestro repositorio. Lo podemos crear manualmente o con [gitignore.io.](https://www.toptal.com/developers/gitignore)
+
+```# esto es un comentario
+archivo.ext
+carpeta
+/archivo_desde_raiz.ext
+# ignorar todos los archivos que terminen en .log
+*.log
+# excepto production.log
+!production.log
+# ignorar los archivos terminados en .txt dentro de la carpeta doc,
+# pero no en sus subcarpetas
+doc/*.txt
+# ignorar todos los archivos terminados en .txt dentro de la carpeta doc
+# y también en sus subcarpetas
+doc/**/*.txt
 ```
