@@ -131,7 +131,7 @@ git comando -h
 git help comando
 ```
 
-## gnorar archivos
+## Ignorar archivos
 
 En el archivo .gitignore incluimos todo lo que NO queramos incluir en nuestro repositorio. Lo podemos crear manualmente o con [gitignore.io.](https://www.toptal.com/developers/gitignore)
 
