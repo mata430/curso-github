@@ -1,0 +1,26 @@
+* 56e6f85 agregue dos parrafos
+*   76d7255 resolviendo conflito de estaciones y fechas
+|\  
+| * 69a842b agregando las estaciones del ano
+* | 2c65d65 agragando estaciones con fechas
+|/  
+*   f96a102 resolviendo conflicto manuel de merge
+|\  
+| * f796ec3 agregando scrip js
+* | 7bd99c2 agregamos info al html
+|/  
+* 77f397a inicio de html
+*   6c4dac0 Merge branch 'js' into main
+|\  
+| * 367b508 creando archivo js de prueba
+* |   77286de Merge branch 'css' into main fusion css
+|\ \  
+| * | 46ae737 creando css de prueba
+| |/  
+* | eea38e5 ramas y fusiones
+* | d79e013 actualizacion
+|/  
+* 1ed9a3e ignorando archivos .exe
+* 768fac9 creando licencia del repositorio
+* 02310f9 agrgando mas informacion
+* 1469bd7 iniciandoflujoBasico
