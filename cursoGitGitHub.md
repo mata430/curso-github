@@ -224,6 +224,7 @@ git commit --amend --no-edit
 
 # editando el mensaje del último commit
 git commit --amend -m "nuevo mensaje para el último commit"
+# funciona si no hemos hecho un git push
 
 # eliminar el último commit
 git reset --hard HEAD~1
