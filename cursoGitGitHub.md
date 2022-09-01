@@ -306,3 +306,129 @@ git reset id-commit
 git reset --hard id-commit
 ```
 
+## Resetear un repositorio
+
+
+Si en algún momento tienes la necesidad de resetear el historial de cambios de un repositorio para que quede como si lo acabarás de crear ejecuta esta serie de comandos:
+
+```cd carpeta-repositorio
+mv .git/config ~/saved_git_config
+rm -rf .git
+git init
+git branch -M main
+git add .
+git commit -m "Commit inicial"
+mv ~/saved_git_config .git/config
+git push --force origin main
+```
+
+## Remotos
+
+```# muestra los orígenes remotos del repositorio
+git remote
+
+# muestra los orígenes remotos con detalle
+git remote -v
+
+# agregar un orígen remoto
+git remote add nombre-orígen https://github.com/usuario/repositorio.git
+
+# renombrar un orígen remoto
+git remote rename nombre-viejo nombre-nuevo
+
+# eliminar un orígen remoto
+git remote remove nombre-orígen
+
+# descargar una rama remota a local diferente a la principal
+git checkout --track -b rama-remota origin/rama-remota
+```
+
+## Etiquetas
+
+
+Con esta opción git nos permite versionar nuestro código, librería o proyecto.
+
+```# listar etiquetas
+git tag
+
+# crea una etiqueta
+git tag numero-versión
+
+# eliminar una etiqueta
+git tag -d numero-versión
+
+# mostrar información de una etiqueta
+git show numero-versión
+
+# sincronizando la etiqueta del repositorio local al remoto
+git add .
+git  tag v1.0.0
+git commit -m "v1.0.0"
+git push origin numero-versión
+
+# generando una etiqueta anotada (con mensaje de commit)
+git add .
+git tag -a "v1.0.0" -m "Mensaje de la etiqueta"
+git push --tags
+```
+
+## GitHub Pages
+
+gh-pages es una rama especial para crear un sitio web a tu proyecto alojado directamente en tu repositorio de GitHub.
+
+URL del repositorio: https://github.com/usuario/repositorio
+URL del sitio: https://usuario.github.io/repositorio
+Para crear esta rama especial en GitHub ejecutamos los siguientes comandos:
+
+```git branch gh-pages
+git checkout gh-pages
+
+git remote add origin https://github.com/usuario/repositorio.git
+git push origin gh-pages
+
+# para descargar los cambios del repositorio remoto al local
+git pull origin gh-pages
+```
+
+## Colaboración en GitHub
+
+Para poder colaborar en proyectos alojados en GitHub necesitamos hacer uso de los forks y pull requests, herramientas que nos ofrece la plataforma para dicho objetivo.
+
+A continuación describo el proceso de colaboración en GitHub.
+
+Forkea el repositorio en el que quieras colaborar, para hacerlo, sigue las instrucciones de este enlace.
+Una vez forkeado el repositorio en tu cuenta de GitHub, clónalo en tu equipo de cómputo.
+En el repositorio local hay que configurar los orígenes remotos de tu nueva copía para tener ambos remotos, los originales (origin) y los de tu copia, para hacerlo, sigue las instrucciones de este enlace.
+Crea una rama nueva en tu fork local para hacer tu colaboración, y sincrónizala con tu repositorio remoto, para hacerlo, sigue las instrucciones de este enlace.
+Configura tu repositorio para que acepté cambios (pull requests), para hacerlo, sigue las instrucciones de este enlace.
+Crea una pull request, para hacerlo, sigue las instrucciones de este enlace.
+Espera a que el dueño del repositorio original, acepte tus cambios.
+Una vez que acepten tu pull request, es recomendable que borres la rama en la que trabajaste el cambio y actualices tu repositorio forkeado, con los cambios del repositorio original.
+Anexo un resumen de los comandos a ejecutar para colaborar en un repositorio de GitHub:
+
+```# forkear repositorio
+git clone https://github.com/usuario/repositorio.git
+git remote -v
+git remote rename origin fork
+git remote add origin https://github.com/usuario/repositorio.git
+git checkout -b rama-nueva
+git push fork rama-nueva
+# solicitar el pull request
+# aceptar el pull request
+git checkout main
+git pull origin main
+git push fork main
+git branch -d rama-nueva
+git push fork --delete rama-nueva
+```
+## Aprende más
+
+A continuación te dejo algunos enlaces donde puedes profundizar tus conocimientos sobre Git y GitHub:
+
+[Git - la guía sencilla.](http://rogerdudler.github.io/git-guide/index.es.html)
+
+[Libro Pro Git.](https://git-scm.com/book/es/v2)
+
+[Guías oficiales de GitHub.](https://docs.github.com/es)
+
+[curso youtube](https://www.youtube.com/watch?v=suzMNqDQiyU&ab_channel=jonmircha)
